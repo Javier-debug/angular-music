@@ -1,0 +1,38 @@
+<table mat-table [dataSource]="songs" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef class="custom-header"> No. </th>
+    <td class="custom-cell" mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef class="custom-header"> Titulo </th>
+    <td class="custom-cell" mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="grupo">
+    <th mat-header-cell *matHeaderCellDef class="custom-header"> Grupo </th>
+    <td class="custom-cell" mat-cell *matCellDef="let element"> {{element.group}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="año">
+    <th mat-header-cell *matHeaderCellDef class="custom-header"> Año </th>
+    <td class="custom-cell" mat-cell *matCellDef="let element"> {{element.year}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="genero">
+    <th mat-header-cell *matHeaderCellDef class="custom-header"> Genero </th>
+    <td class="custom-cell" mat-cell *matCellDef="let element"> {{element.genre}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr (click)="songSelection(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

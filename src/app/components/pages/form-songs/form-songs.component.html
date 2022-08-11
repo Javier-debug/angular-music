@@ -1,0 +1,49 @@
+<form style="margin-bottom: 10px;" [formGroup]="searchForm" class="example-form" (ngSubmit)="searchSong(searchForm.value)">
+  <div class="custom-columns">
+    <div class="column-filter">
+      <button mat-flat-button type="button" (click)="resetTableSongs()" color="warn">
+        <mat-icon>settings_backup_restore</mat-icon>
+      </button>
+    </div>
+    <div style="background-color: white; height: 60px;" class="column-text">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Titulo de la canción</mat-label>
+        <input formControlName="title" matInput placeholder="Sirena">
+      </mat-form-field>
+    </div>
+    <div class="column-filter">
+      <button mat-flat-button type="submit" color="primary">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>
+
+<h1>Detalles de la canción</h1>
+<form id="songForm" [formGroup]="songForm" class="example-form" (ngSubmit)="addSong(songForm.value)">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Titulo</mat-label>
+    <input formControlName="title" matInput placeholder="No me doy por vencido">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Grupo o artista</mat-label>
+    <input formControlName="group" matInput placeholder="Luis Fonsi">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Año</mat-label>
+    <input type="number" formControlName="year" matInput placeholder="2008">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Genero</mat-label>
+    <input formControlName="genre" matInput placeholder="Pop">
+  </mat-form-field>
+
+  <div class="buttons-section">
+    <button [disabled]="songSelected ? false : true" (click)="deleteSong()" mat-flat-button type="button" color="warn">
+      Eliminar
+    </button>
+    <button mat-flat-button type="submit" color="primary">
+      Agregar
+    </button>
+  </div>
+</form>

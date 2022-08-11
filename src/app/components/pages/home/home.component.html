@@ -1,0 +1,8 @@
+<div class="columns is-desktop">
+  <div class="column is-half" style="margin:1%">
+    <app-songs-list #list (songSelected)="songSelected($event)"></app-songs-list>
+  </div>
+  <div class="column" style="margin:1%; justify-content: center; display: flex;">
+    <app-form-songs #songForm (addSongDB)="addSong($event)" (deleteSongDB)="deleteSong($event)" (resetTable)="resetTable()" (titleToSearch)="titleToSearch($event)"></app-form-songs>
+  </div>
+</div>
